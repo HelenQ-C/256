@@ -602,4 +602,4 @@ indexOverlay.addEventListener('mouseleave', showCustomCursor);
   // Start the animation loop
   requestAnimationFrame(animateStamps);
 
-    // Parts of the code is been helped written by ChatGPT
+    // Parts of this code is been helped written by ChatGPT :)
