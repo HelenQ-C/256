@@ -1,0 +1,227 @@
+body {
+    cursor: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  #custom-cursor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  #clear-stamps-button,
+  #toggle-blend-button {
+    position: absolute;
+    z-index: 1001;
+    cursor: pointer; /* Change cursor to pointer when hovering over buttons */
+
+  }    
+
+  #clear-stamps-button {
+    top: 10px;
+    right: 10px;
+  }
+  #toggle-blend-button {
+    top: 55px;
+    right: 10px;
+  }
+
+  .button-style {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: white;
+    font-size: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .button-style:hover {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    font-size: 100%;
+    border: 1px solid black;
+    color: white;
+  }
+
+  .button-clicked {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    font-size: 100%;
+    border: 1px solid white;
+    color: white;
+  }
+
+  #drag-button {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  #static-button {
+    position: absolute;
+    top: 145px;
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  #dark-button {
+    position: absolute;
+    top: 190px;
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  .dark-mode {
+    background-color: black;
+  }
+
+  #religious-button {
+    position: absolute;
+    top: 280px;
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  #futurism-button {
+    position: absolute;
+    top: 460px;
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  #cybersigilism-button {
+    position: absolute;
+    top: 505px; 
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  #eerie-button {
+    position: absolute;
+    top: 325px;
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+  
+  #retro-button {
+    position: absolute;
+    top: 415px; 
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  #twothousands-button {
+    position: absolute;
+    top: 370px; 
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  #index-button {
+    position: absolute;
+    top: 595px;
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+#buttons-container {
+  position: absolute; 
+  top: 0;
+  right: 0px;
+  transition: right 0.3s ease;
+  z-index: 1001;
+  width: 100%;
+}
+
+#buttons-container button {
+  display: block;
+  margin-top: 10px;
+}
+
+#index-overlay.active ~ #buttons-container {
+  right: 310px; 
+}
+
+p {
+  margin: 0px;
+  font-size: 12px;
+}
+
+.index-item {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+.image-column {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.image-column img {
+  width: 100%;
+  height: auto;
+}
+
+.info-column {
+  flex: 1;
+}
+.info-column p {
+  margin: 0px;
+  font-size: 12px;
+}
+
+/* Base styles for index overlay */
+#index-overlay {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Start off-screen */
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  border-left: 1px solid black;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: right 0.3s ease;
+  z-index: 1002; 
+  font-family: 'Courier New', Courier, monospace;
+  /* Remove cursor: none; unless necessary */
+}
+
+#index-overlay.active {
+  right: 0; /* Slide in when active */
+}
+
+/* Dark mode styles */
+.dark-mode #index-overlay {
+  background-color: black;
+  border-left: 1px solid white;
+  /* Remove right: -300px; */
+}
+
+/* Ensure overlay slides in when active in dark mode */
+.dark-mode #index-overlay.active {
+  right: 0;
+}
+
+/* Dark mode content styles */
+.dark-mode #index-overlay .index-item {
+  border-bottom: 1px solid #444;
+}
+
+.dark-mode #index-overlay .info-column p {
+  color: white;
+}
+
