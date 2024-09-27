@@ -16,7 +16,7 @@ fetch('index.json')
     const activeCategories = [];
     if (isReligiousOn) activeCategories.push('Religious');
     if (isEerieOn) activeCategories.push('Eerie');
-    if (isRetroOn) activeCategories.push('Retro');
+    if (isRetroOn) activeCategories.push('Retro Object');
     if (isTwoThousandsOn) activeCategories.push('2000s');
     if (isFuturismOn) activeCategories.push('Futurism');
     if (isCybersigilismOn) activeCategories.push('Cybersigilism');
