@@ -11,13 +11,12 @@ fetch('index.json')
 
   function populateOverlay() {
     const overlay = document.getElementById('index-overlay');
-    overlay.innerHTML = ''; // Clear existing content
+    overlay.innerHTML = ''; 
   
-    // Build an array of active categories
     const activeCategories = [];
     if (isReligiousOn) activeCategories.push('Religious');
     if (isEerieOn) activeCategories.push('Eerie');
-    if (isRetroOn) activeCategories.push('Retro Object');
+    if (isRetroOn) activeCategories.push('Retro');
     if (isTwoThousandsOn) activeCategories.push('2000s');
     if (isFuturismOn) activeCategories.push('Futurism');
     if (isCybersigilismOn) activeCategories.push('Cybersigilism');
@@ -35,11 +34,9 @@ fetch('index.json')
     }
   
     itemsToDisplay.forEach(item => {
-      // Create a container for each item
       const itemDiv = document.createElement('div');
       itemDiv.classList.add('index-item');
   
-      // Left column for the image
       const imageDiv = document.createElement('div');
       imageDiv.classList.add('image-column');
   
@@ -48,44 +45,48 @@ fetch('index.json')
       img.style.width = '100%';
       img.style.height = 'auto';
   
-      // Invert the image if dark mode is on
       if (isDarkModeOn) {
         img.style.filter = 'invert(1) grayscale(1)';
       }
   
       imageDiv.appendChild(img);
   
-      // Right column for the information
       const infoDiv = document.createElement('div');
       infoDiv.classList.add('info-column');
   
-      const title = document.createElement('p');
-      title.textContent = item.title;
+      if (item.title) {
+        const title = document.createElement('p');
+        title.textContent = item.title;
+        infoDiv.appendChild(title);
+      }
   
-      const author = document.createElement('p');
-      author.textContent = `Author: ${item.author}`;
+      if (item.author) {
+        const author = document.createElement('p');
+        author.textContent = `Author: ${item.author}`;
+        infoDiv.appendChild(author);
+      }
   
-      const year = document.createElement('p');
-      year.textContent = `Year: ${item.year}`;
+      if (item.year) {
+        const year = document.createElement('p');
+        year.textContent = `Year: ${item.year}`;
+        infoDiv.appendChild(year);
+      }
   
-      const source = document.createElement('p');
-      source.innerHTML = `Source: ${item.source}`;
+      if (item.source) {
+        const source = document.createElement('p');
+        source.innerHTML = `Source: ${item.source}`;
+        infoDiv.appendChild(source);
+      }
   
-      const category = document.createElement('p');
-      category.textContent = `Category: ${item.category}`;
+      if (item.category) {
+        const category = document.createElement('p');
+        category.textContent = `Category: ${item.category}`;
+        infoDiv.appendChild(category);
+      }
   
-      // Append information elements to the info column
-      infoDiv.appendChild(title);
-      infoDiv.appendChild(author);
-      infoDiv.appendChild(year);
-      infoDiv.appendChild(source);
-      infoDiv.appendChild(category);
-  
-      // Append both columns to the item container
       itemDiv.appendChild(imageDiv);
       itemDiv.appendChild(infoDiv);
   
-      // Append the item to the overlay
       overlay.appendChild(itemDiv);
     });
   }
